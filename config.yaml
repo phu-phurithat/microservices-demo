@@ -1,13 +1,37 @@
-deployment:
-  adservice: https://github.com/phu-phurithat/microservice-demo-adservice.git
-  cartservice: https://github.com/phu-phurithat/microservice-demo-cartservice.git
-  checkoutservice: https://github.com/phu-phurithat/microservice-demo-checkoutservice.git
-  currencyservice: https://github.com/phu-phurithat/microservice-demo-currencyservice.git
-  emailservice: https://github.com/phu-phurithat/microservice-demo-emailservice.git
-  frontend: https://github.com/phu-phurithat/microservice-demo-frontend.git
-  loadgenerator: https://github.com/phu-phurithat/microservice-demo-loadgenerator.git
-  paymentservice: https://github.com/phu-phurithat/microservice-demo-paymentservice.git
-  productcatalogservice: https://github.com/phu-phurithat/microservice-demo-productcatalogservice.git
-  recommendationservice: https://github.com/phu-phurithat/microservice-demo-recommendationservice.git
-  shippingservice: https://github.com/phu-phurithat/microservice-demo-shippingservice.git
-  shoppingassistantservice: https://github.com/phu-phurithat/microservice-demo-shoppingassistantservice.git
+app_id: 1000
+kinds:
+  deployments:
+    adservice: https://github.com/phu-phurithat/microservice-demo-adservice.git
+    cartservice: https://github.com/phu-phurithat/microservice-demo-cartservice.git
+    checkoutservice: https://github.com/phu-phurithat/microservice-demo-checkoutservice.git
+    currencyservice: https://github.com/phu-phurithat/microservice-demo-currencyservice.git
+    emailservice: https://github.com/phu-phurithat/microservice-demo-emailservice.git
+    frontend: https://github.com/phu-phurithat/microservice-demo-frontend.git
+    loadgenerator: https://github.com/phu-phurithat/microservice-demo-loadgenerator.git
+    paymentservice: https://github.com/phu-phurithat/microservice-demo-paymentservice.git
+    productcatalogservice: https://github.com/phu-phurithat/microservice-demo-productcatalogservice.git
+    recommendationservice: https://github.com/phu-phurithat/microservice-demo-recommendationservice.git
+    shippingservice: https://github.com/phu-phurithat/microservice-demo-shippingservice.git
+    shoppingassistantservice: https://github.com/phu-phurithat/microservice-demo-shoppingassistantservice.git
+
+environments:
+  dev:
+    cluster: "nonprod-cicd-vayu"
+    namespace: "microservice-demo-dev"
+  sit:
+    cluster: "nonprod-cicd-vayu"
+    namespace: "microservice-demo-sit"
+  prod:
+    cluster: "nonprod-cicd-vayu"
+    namespace: "microservice-demo-prod"
+  ocp-dev:
+    endpoint: "https://api.gmvayu1x.ktbcs:6443"
+    credential: "ocp-nonprod-cred"
+    namespace: "tj"
+
+registry:
+  nonprod: "harbor.phurithat.site/microservice-demo-nonprod"
+  prod: "harbor.phurithat.site/microservice-demo-nonprod"
+
+helm:
+  version: "1.0.0" 
