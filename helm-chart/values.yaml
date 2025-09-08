@@ -17,7 +17,7 @@
 # Declare variables to be passed into your templates.
 
 images:
-  repository: harbor.phurithat.site/microservice-demo-nonprod
+  repositorys: harbor.phurithat.site/microservice-demo-nonprod
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
