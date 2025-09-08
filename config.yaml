@@ -16,13 +16,13 @@ kinds:
 
 environments:
   dev:
-    cluster: "nonprod-cicd-vayu"
+    cluster: "microservice-demo-kubeconfig"
     namespace: "microservice-demo-dev"
   sit:
-    cluster: "nonprod-cicd-vayu"
+    cluster: "microservice-demo-kubeconfig"
     namespace: "microservice-demo-sit"
   prod:
-    cluster: "nonprod-cicd-vayu"
+    cluster: "microservice-demo-kubeconfig"
     namespace: "microservice-demo-prod"
   ocp-dev:
     endpoint: "https://api.gmvayu1x.ktbcs:6443"
@@ -31,7 +31,7 @@ environments:
 
 registry:
   nonprod: "harbor.phurithat.site/microservice-demo-nonprod"
-  prod: "harbor.phurithat.site/microservice-demo-nonprod"
+  prod: "harbor.phurithat.site/microservice-demo-prod"
 
 helm:
   version: "1.0.0" 
