@@ -13,6 +13,8 @@ kinds:
     recommendationservice: https://github.com/phu-phurithat/microservice-demo-recommendationservice.git
     shippingservice: https://github.com/phu-phurithat/microservice-demo-shippingservice.git
     shoppingassistantservice: https://github.com/phu-phurithat/microservice-demo-shoppingassistantservice.git
+    # Test
+    nginx: https://github.com/phu-phurithat/nginx.git
 
 environments:
   dev:
