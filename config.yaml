@@ -16,14 +16,14 @@ kinds:
 
 environments:
   dev:
-    cluster: "microservice-demo-kubeconfig"
-    namespace: "microservice-demo-dev"
+    cluster: "microservices-demo-kubeconfig"
+    namespace: "microservices-demo-dev"
   sit:
-    cluster: "microservice-demo-kubeconfig"
-    namespace: "microservice-demo-sit"
+    cluster: "microservices-demo-kubeconfig"
+    namespace: "microservices-demo-sit"
   prod:
-    cluster: "microservice-demo-kubeconfig"
-    namespace: "microservice-demo-prod"
+    cluster: "microservices-demo-kubeconfig"
+    namespace: "microservices-demo-prod"
   ocp-dev:
     endpoint: "https://api.gmvayu1x.ktbcs:6443"
     credential: "ocp-nonprod-cred"
