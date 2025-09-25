@@ -1,52 +1,98 @@
+# Default values for nginx app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
 replicaCount: 1
+
 image:
-  repository: harbor.phurithat.site/microservice-demo-nonprod/nginx
+  repository: nginx
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: "latest"
+
 imagePullSecrets: []
-nameOverride: ''
-fullnameOverride: ''
+
+nameOverride: ""
+fullnameOverride: ""
+
 serviceAccount:
   create: true
   automount: true
   annotations: {}
-  name: ''
+  name: ""
+
 podAnnotations: {}
 podLabels: {}
-podSecurityContext: {}
-securityContext: {}
+
+podSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+      - ALL
+  privileged: false
+  readOnlyRootFilesystem: true
+
+securityContext: 
+  fsGroup: 1000
+  runAsGroup: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+env:
+  - name: PORT
+    value: "80"
+
 service:
   type: ClusterIP
   port: 80
+
 ingress:
   enabled: false
-  className: ''
+  className: ""
   annotations: {}
   hosts:
-  - host: chart-example.local
-    paths:
-    - path: /
-      pathType: ImplementationSpecific
+    - host: nginx.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls: []
-resources: {}
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 180Mi
+  limits:
+    cpu: 300m
+    memory: 300Mi
+
 readinessProbe:
   httpGet:
     path: /
-    port: http
+    port: 80
+  initialDelaySeconds: 20
+  periodSeconds: 15
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 20
+  periodSeconds: 15
+
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
+
 volumes: []
 volumeMounts: []
+
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
 sidecars:
   enableSidecars: false
   sidecarContainers: []
