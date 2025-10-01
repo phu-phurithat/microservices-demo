@@ -41,8 +41,8 @@ podSecurityContext:
   # runAsUser: 1000
 
 env:
-  - name: PORT
-    value: "7000"
+- name: PORT
+  value: "7000"
 
   # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
