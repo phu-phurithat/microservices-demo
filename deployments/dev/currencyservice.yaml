@@ -29,7 +29,7 @@ podSecurityContext:
     type: RuntimeDefault
 env:
 - name: PORT
-  value: break
+  value: 7000
 service:
   type: ClusterIP
   port: 7000
