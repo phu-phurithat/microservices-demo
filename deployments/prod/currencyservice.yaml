@@ -1,8 +1,8 @@
 replicaCount: 1
 image:
-  repository: harbor.phurithat.site/microservice-demo-nonprod/currencyservice
+  repository: harbor.phurithat.site/microservice-demo-prod/currencyservice
   pullPolicy: IfNotPresent
-  tag: v1.0
+  tag: prod-v1.0
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
