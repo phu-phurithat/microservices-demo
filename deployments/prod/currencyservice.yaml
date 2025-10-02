@@ -1,0 +1,76 @@
+replicaCount: 1
+image:
+  repository: harbor.phurithat.site/microservice-demo-nonprod/currencyservice
+  pullPolicy: IfNotPresent
+  tag: v1.0
+imagePullSecrets: []
+nameOverride: ''
+fullnameOverride: ''
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ''
+podAnnotations: {}
+podLabels: {}
+containerSecurityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  readOnlyRootFilesystem: true
+podSecurityContext:
+  fsGroup: 1000
+  runAsGroup: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
+  seccompProfile:
+    type: RuntimeDefault
+env:
+- name: PORT
+  value: 7000
+service:
+  type: ClusterIP
+  port: 7000
+  targetPort: 7000
+ingress:
+  enabled: false
+  className: ''
+  annotations: {}
+  hosts:
+  - host: chart-example.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  tls: []
+resources:
+  requests:
+    cpu: 200m
+    memory: 180Mi
+  limits:
+    cpu: 300m
+    memory: 300Mi
+readinessProbe:
+  initialDelaySeconds: 20
+  periodSeconds: 15
+  grpc:
+    port: 7000
+livenessProbe:
+  initialDelaySeconds: 20
+  periodSeconds: 15
+  grpc:
+    port: 7000
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+tolerations: []
+affinity: {}
+sidecars:
+  enableSidecars: false
+  sidecarContainers: []
