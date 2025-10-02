@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: harbor.phurithat.site/microservice-demo-nonprod/currencyservice
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 67a7405
 imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
